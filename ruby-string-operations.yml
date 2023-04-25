@@ -1,0 +1,166 @@
+---
+namespace: ruby-string
+
+symbols:
+  plain-content: |
+    %, *, +, +@, -@, <<, <=>;, ==, ===, =~, [], []=, eql?
+  
+
+char-wise-translation:
+  plain-content: |
+    upcase(!)
+    downcase(!)
+    swapcase(!)
+    capitalize(!)
+    tr(!)                 : translate
+    tr_s(!)               : translate and remove duplications
+  
+    count
+    delete(!)             : delete characters
+  
+
+double-ends-editing:
+  plain-content: |
+    strip(!)              : remove blank
+    lstrip(!)             : remove blank
+    rstrip(!)             : remove blank
+    center                : pad string center
+    ljust                 : pad string right
+    rjust                 : pad string left
+    chop                  : remove last char
+    chomp(!)              : remove last separator char
+    start_with?
+    end_with?
+    delete_prefix(!)
+    delete_suffix(!)
+    concat
+    prepend
+  
+  
+
+overall-modification:
+  plain-content: |
+    reverse(!)
+    squeeze(!)            : squeeze give repeated char to single char
+    slice(!)              : return (!delete) ranges
+  
+    insert                : insert other string into index
+  
+
+convert-to-arrays:
+  plain-content: |
+  
+    each_line
+    split                 : split by separator
+    chars
+    lines
+  
+  
+
+Queries:
+  plain-content: |
+    empty?
+    include?
+    length
+    size                  : alias for length
+  
+
+Regex:
+  plain-content: |
+    sub(!)                : substitude once
+    gsub(!)               : substitude all
+    partition             : split to [prematch, match, postmatch] first occurance from left
+    rpartition            : split to [prematch, match, postmatch] first occurance from right
+  
+    match
+    match?
+    index
+    rindex
+    scan
+  
+
+Interpolation:
+  plain-content: |
+    dump
+    undump
+    shellescape
+    shellsplit
+    hex                   :
+    oct                   : treat string as octal digits and return number
+    sum                   : checksum for string
+  
+
+binary-processing:
+  plain-content: |
+    unpack
+    unpack1
+    each_byte
+    bytes
+    bytesize
+    setbyte(idx, i)       : modify i-th byte as i
+    getbyte
+    byteslice
+  
+    chr                   : return first character
+  
+
+ordinary:
+  plain-content: |
+    casecmp
+    casecmp?
+    upto
+    succ(!)
+    next(!)               : alias for succ
+    prev(!)
+  
+    ord                   : Integer ordinal of single char
+    codepoints            : Array of ord for each char
+    each_codepoints       :
+  
+
+type-convert:
+  plain-content: |
+    to_c                  : complex
+    to_d                  : bigdecimal
+    to_f                  : float
+    to_i                  : integer
+    to_r                  : rational
+    to_s                  : self or string
+    to_str                : string
+    to_sym                : symbol
+    intern                : alias for to_sym
+  
+    inspect
+  
+
+encoding:
+  plain-content: |
+    unicode_normalize(!)
+    unicode_normalized?
+    encode(!)
+    kconv
+    encoding
+    force_encoding
+    valid_encoding?
+    tolocale
+    b
+    toeuc
+    tojis, tosjis,
+    toutf16, toutf32, toutf8
+    ascii_only?
+    iseuc
+    isjis, issjis,
+    isutf8
+    scrub(!)
+    each_grapheme_cluster
+    grapheme_clusters
+  
+
+memory-related:
+  plain-content: |
+    initialize_copy
+    replace
+    clear
+    crypt
+    hash
+    freeze

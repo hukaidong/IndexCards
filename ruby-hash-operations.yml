@@ -1,0 +1,105 @@
+---
+namespace: ruby-hash
+Operators:
+  plain-content: |
+    <, <=, >, >=, ==, eql?
+
+Defaults:
+  plain-content: |
+    default
+    default=
+    default_proc
+    default_proc=
+
+Each-operations:
+  plain-content: |
+    each
+    each_key
+    each_pair
+    each_value
+   
+    shift                 : removes and return first [key, value] pair or default value 
+
+Hash-merges:
+  plain-content: |
+    merge(!)
+    update                : alias for merge!
+
+Transform-operations:
+  plain-content: |
+    select(!)
+    filter(!)             : alias for select
+    keep_if               : alias for select! but return self
+    reject(!)
+    delete_if             : alias for reject! but return self
+    compact(!)
+  
+    transform_keys(!)
+    transform_values(!)
+    
+    invert                : return a new Hash with key-value
+
+Single-Match:
+  plain-content: |
+    key(value)            : return first key found by given value with ==
+    rassoc(value) : return [key, val] pair if val is found else nil
+    
+  
+    [](key)               : return value or nil
+    fetch(key, default:)  : return value or default or given proc or raise
+    assoc(key)            : return [key, val] pair if key is found else nil
+    
+    []=(key, val) : store a value with key
+    store(key, val)       : alias for []=
+    delete(key)           : delete a key and return value
+    
+Multiple-Match:
+  plain-content: |
+    keys
+    values
+    
+    slice         : return new Hash with given keys
+    except                : return new Hash without given keys
+    values_at             : return an Array of values with given keys (nil if not found)
+    fetch_values          : like values_at, but raise exception if key is not found
+    
+Data-query:
+  plain-content: |
+    length
+    size
+  
+    key?
+    has_key? 
+    include?
+    member?
+    
+    value?
+    has_value?
+    
+    empty?
+    any?(object)          : object should be [key, value] pair, true if matches
+    
+Type-Conversion:
+  plain-content: |
+    to_a
+    to_h                  : convert to Hash if it's a subclass of Hash
+    to_hash               : return self without convert
+    to_proc               : return a proc object maps a key to its value
+    to_s
+    inspect
+    hash                  : integer hash code for given hash
+    
+Memory-Operation:
+  plain-content: |
+    initialize_copy(p1)   : replace contents with other_hash
+    replace(p1)           : alias for initialize_copy
+    
+    clear
+  
+Other:
+  plain-content: |
+    dig
+    flatten
+    rehash
+    compare_by_identity
+    compare_by_identity

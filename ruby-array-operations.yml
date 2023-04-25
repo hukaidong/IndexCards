@@ -1,0 +1,189 @@
+---
+namespace: ruby-array
+
+operators:
+  plain-content: |
+     - *, +, -, <<, <=>, ==, [], []=, eql?
+  
+each-iterators:
+  plain-content: |
+    each
+    each_index
+    each_cons
+    each_entry
+    each_slice
+    each_with_index
+    each_with_object
+    reverse_each
+  
+generatives:
+  plain-content: |
+    cycle(n)
+    chain
+
+head-tail-operations:
+  plain-content: |
+    first(n)
+    last(n)
+
+    pop
+    push 
+    append
+    shift
+    unshift 
+    prepend
+
+one-to-one-map:
+  plain-content: |
+    map(!)
+    collect(!)            : alias to map(!)
+    filter_map            : map and discard nils
+    flat_map              : map and expand block of arrays
+    collect_concat        : alias to flat_map
+    flatten(!)
+    
+partial-matching:
+  plain-content: |
+    select(!)
+    filter(!)             : alias to select(!)
+    find_all              : alias to select
+    keep_if               : equivalent to select! but return self
+
+    reject(!)             : negation of select(!)
+    delete_if             : equivalent to reject! but return self
+
+    grep(pattern)         : select all elements where pattern === element
+    grep_v(pattern)       : negation of grep
+
+    uniq(!)
+    compact(!)
+
+single-matching:
+  plain-content: |
+    find(->) &blk : Return the first for which block is not false
+    detect(->) &blk       : Alias to find
+    bsearch &blk
+    include?(obj) : Return true if obj == self[i]
+    member?(obj)          : Alias to include?
+    delete(obj)
+
+    assoc(key)            : find element pair where element.first == key
+    rassoc(value) : find element pair where element.second == value
+
+    index(obj)
+    find_index(obj)       : alias to index
+    bsearch_index &blk
+    rindex(obj)
+
+index-item-operations:
+  plain-content: |
+    at(i)                 : self[i] or nil
+    fetch(i)              : self[i] or raise
+    fetch(i, default)     : self[i] or default
+    fetch(i) &blk         : self[i] or blk[i]
+    values_at(*keys)      : array of self[key]
+    insert
+    delete_at
+  
+logical-operations:
+  plain-content: |
+    concat                : alias to +
+    intersection          : alias to &
+    difference            : alias to -
+    union                 : alias to |
+    |                     : alias to union
+    &                     : alias to intersection
+    +                     : alias to concat
+    -                     : alias to difference
+      
+    combination
+    repeated_combination
+    permutation
+    repeated_permutation
+    product
+
+    zip
+    transpose
+  
+string-operations:
+  plain-content: |
+    join
+    shelljoin
+    inspect
+  
+ordering-operations:
+  plain-content: |
+    reverse(!)
+    shuffle(!)
+    sort(!)
+    sort_by(!)
+    rotate(!)
+
+reduction-operations:
+  plain-content: |
+    min, max, minmax
+    min_by, max_by
+    all?, any?, none?
+    one?
+
+    reduce
+    inject                : Alias to reduce
+    sum
+    count
+
+memory-operations:
+  plain-content: |
+    replace(other_array)  : replace memory with other_array
+    initialize_copy       : alias to replace
+    clear
+    fill
+    pack
+
+content-operations:
+  plain-content: |
+    size
+    length
+    empty?
+  
+create-a-subset:
+  plain-content: |
+    take
+    take_while
+    drop
+    drop_while
+
+    slice(!)              : (!: remove sliced items as well)
+    []                    : alias to slice
+    sample                : return a random subset of array
+
+chunking-and-slicing:
+  plain-content: |
+    chunk                 : chunk together based on block
+    slice_before          : split before block or pattern is true
+    slice_after           : split after block or pattern is true
+
+    chunk_while           : split when block is false
+    slice_when            : split when block is true
+
+grouping-and-counting:
+  plain-content: |
+    partition             : collect two arrays of [ true_array, false_array ]
+    group_by              : groups the collection by result of the block
+    tally                 : count occurrences of each element
+
+to-other-types:
+  plain-content: |
+    to_a                  : return Array version of self
+    entries               : alias to to_a
+    to_ary                : return self if self.kind_of?(Array)
+    to_h
+    to_s
+    to_set
+  
+other-operations:
+  plain-content: |
+    abbrev
+    deconstruct
+    dig
+    lazy
+    hash
